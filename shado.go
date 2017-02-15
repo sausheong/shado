@@ -1,16 +1,11 @@
 package main
 
 import (
-	// "bytes"
-	// "compress/flate"
 	"errors"
 	"fmt"
 	"github.com/lazywei/go-opencv/opencv"
 	"image"
-	// "image/color"
 	"image/jpeg"
-	// "io"
-	// "math"
 	"os"
 	"strconv"
 	"time"
@@ -20,6 +15,8 @@ func main() {
 	cam := opencv.NewCameraCapture(1)
 	if cam == nil {
 		panic("cannot open camera")
+	} else {
+		fmt.Println("Starting Shado client.")
 	}
 	defer cam.Release()
 
@@ -32,7 +29,6 @@ func main() {
 
 }
 
-//
 func shado(cam *opencv.Capture, name string) (diff float64) {
 
 	img1, err := capture(cam, 200, 150)
